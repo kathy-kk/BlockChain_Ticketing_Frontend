@@ -2,16 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
-import Signin from './screen/signin';
-import App from './screen/app';
 
 const RestrictedRoute = ({component: Component, isLoggedIn, ...rest}) => (
     <Route {...rest} render= { (props) => {
-        
+
         return isLoggedIn? (
             < Component {...props} />)
             :(<Redirect to = {{pathname: '/signin',
-                state: { 
+                state: {
                     from: props.location }
             }} />); }
     } />
@@ -32,4 +30,3 @@ const PublicRoutes = ({history, isLoggedIn}) => {
 export default connect(state => ({
     isLoggedIn: state.Auth.idToken !== null
 }))(PublicRoutes);
-    
