@@ -17,6 +17,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "immutable": "^3.8.2",
     "jest-css-modules-transform": "^2.0.0",
     "lodash": "^4.17.10",
     "normalizr": "^3.2.4",

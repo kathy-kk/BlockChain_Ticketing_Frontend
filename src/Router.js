@@ -21,9 +21,9 @@ const PublicRoutes = ({history, isLoggedIn}) => {
     return(
         <ConnectedRouter history = {history} >
             <div>
-                <Route exact path={'/'} component = { (props) => { console.log(props); return <div> Signin </div>;}}/>
-                <Route exact path={'/signin'} component = { (props) => { console.log(props); return <div> Signin </div>;}}/>
-                <RestrictedRoute path={'/dashboard'} component = {(props) => { console.log(props); return <div> App </div>;}} isLoggedIn = {isLoggedIn}/>
+                <Route exact path={'/'} component = { (props) => { console.log(props); return <Signin />;}}/>
+                <Route exact path={'/signin'} component = { (props) => { console.log(props); return <Signin />;}}/>
+                <RestrictedRoute path={'/dashboard'} component = {(props) => { console.log(props); return <App />;}} isLoggedIn = {isLoggedIn}/>
             </div>
         </ConnectedRouter>
     );
