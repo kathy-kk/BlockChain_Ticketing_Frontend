@@ -12,11 +12,7 @@ async function signin(emailId, password) {
     });
     console.log(response);
     if (!response.ok) {
-        throw new Error(
-            `login fail HTTP status ${
-                response.status
-            }`
-        );
+        throw new Error(`${response.status}`);
     }
     const data = await response.json();
     return data;

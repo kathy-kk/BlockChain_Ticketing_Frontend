@@ -18,6 +18,7 @@ export const login = (emailId, password) => {
                 userDetail
             });
         }catch(error){
+            if(error.message == '401'){ clearToken(); }
             console.error(error);
         }
 

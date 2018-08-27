@@ -23,7 +23,7 @@ const PublicRoutes = ({history, isLoggedIn}) => {
             <div>
                 <Route exact path={'/'} component = { (props) => { const history = props.history ;return <Signin history = {history}/>;}}/>
                 <Route exact path={'/signin'} component = { (props) => { const history = props.history ;return <Signin history = {history}/>;}}/>
-                <Route exact path={'/signup'} component = { (props) => { return <Signup />; } } />
+                <Route exact path={'/signup'} component = { (props) => { const history = props.history ; return <Signup  history = {history}/>; } } />
                 <RestrictedRoute path={'/app'} component = {(props) => { const history = props.history ; return <App history = {history} />;}} isLoggedIn = {isLoggedIn}/>
             </div>
         </ConnectedRouter>
