@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { palette } from 'styled-theme';
 import bgImage from './images/sign.jpg';
-import WithDirection from '../../../component/styles/WithDirection';
+//import WithDirection from '../../../component/styles/WithDirection';
 
 const SignInStyleWrapper = styled.div`
 width: 100%;
@@ -148,4 +148,4 @@ width: 100%;
     }
   }
 `;
-export default  WithDirection(SignInStyleWrapper);
+export default  SignInStyleWrapper;
