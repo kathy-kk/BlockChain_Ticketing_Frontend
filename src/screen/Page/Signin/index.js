@@ -24,11 +24,14 @@ class Signin extends React.Component{
     }
     render(){
         const from = { pathname: '/app' };
-        const { isLoggedIn } = this.props;
+        const { isLoggedIn, accessDenied } = this.props;
         if( isLoggedIn ){
             return <Redirect to = {from}/>;
         }
-        
+        const accessDeniedHint =  <p  className="isoHelperText">
+            <IntlMessages id="page.signInPreview" />
+        </p>;
+
         return (
             <SigninStyleWrapper className="isoSignInPage"> 
                 <div className="isoLoginContentWrapper">
@@ -47,7 +50,11 @@ class Signin extends React.Component{
                             <div className="isoInputWrapper">
                                 <Input innerRef = {node => {this.passwordInput = node;}}  size="large" type="password" placeholder="Password" />
                             </div>
-                        
+                            
+                            {accessDenied? <p  className="isoHelperText">
+                                <IntlMessages id="page.signInPreview" />
+                            </p> : <p></p>}
+         
                             <div className="isoInputWrapper isoLeftRightComponent">
                                 <Checkbox>
                                     <IntlMessages id="page.signInRememberMe" />
@@ -55,6 +62,15 @@ class Signin extends React.Component{
                                 <Button type="primary" onClick={this.handleLogin}>
                                     <IntlMessages id="page.signInButton" />
                                 </Button>
+                            </div>
+
+                            <div className="isoCenterComponent isoHelperWrapper">
+                                <Link to="/forgotpassword" className="isoForgotPass">
+                                    <IntlMessages id="page.signInForgotPass" />
+                                </Link>
+                                <Link to="/signup">
+                                    <IntlMessages id="page.signInCreateAccount" />
+                                </Link>
                             </div>
                         </div>
                      
@@ -68,7 +84,8 @@ class Signin extends React.Component{
 
 const mapStateToProps = (state) => {
     return {
-        isLoggedIn:state.Auth.idToken !==null ? true : false
+        isLoggedIn:state.Auth.idToken !==null ? true : false,
+        accessDenied:state.Auth.loginError
     };
 };
 

@@ -1,4 +1,4 @@
-import {  LOGIN_REQUEST, LOGOUT, LOGIN_SUCCESS } from './ActionTypes'; 
+import {  LOGIN_REQUEST, LOGOUT, LOGIN_SUCCESS, LOGIN_ERROR } from './ActionTypes'; 
 import { getToken, clearToken } from '../../helper/utility';
 import signin from '../../service/signin';
 
@@ -18,7 +18,9 @@ export const login = (emailId, password) => {
                 userDetail
             });
         }catch(error){
-            if(error.message == '401'){ clearToken(); }
+            if(error.message == '400'){ dispatch({
+                type: LOGIN_ERROR,
+            }); }
             console.error(error);
         }
 

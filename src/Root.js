@@ -4,7 +4,10 @@ import React from 'react';
 import  PublicRouter from './Router';
 import { IntlProvider } from 'react-intl';
 import { LocaleProvider } from 'antd';
+import { ThemeProvider } from 'styled-components';
 import AppLocale from './locale/AppLocale';
+import theme from './component/styles/theme';
+import AppHolder from './screen/App/App.style';
 
 const Root = ({ store, history }) => {
     const currentLocale = AppLocale.en;
@@ -13,9 +16,13 @@ const Root = ({ store, history }) => {
             locale={currentLocale.locale}
             messages={currentLocale.messages}
         >
-            <Provider store = {store}>     
-                <PublicRouter history = {history}/>
-            </Provider>
+            <ThemeProvider theme = {theme} >
+                <AppHolder>
+                <Provider store = {store}>     
+                    <PublicRouter history = {history}/>
+                </Provider>
+                </AppHolder>
+            </ThemeProvider>
         </IntlProvider>
     </LocaleProvider>;
 };

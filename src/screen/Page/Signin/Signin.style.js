@@ -130,63 +130,7 @@ width: 100%;
         flex-direction: column;
       }
 
-      .isoOtherLogin {
-        padding-top: 40px;
-        margin-top: 35px;
-        border-top: 1px dashed ${palette('grayscale', 2)};
-
-        > a {
-          display: flex;
-          margin-bottom: 10px;
-
-          &:last-child {
-            margin-bottom: 0;
-          }
-        }
-
-        button {
-          width: 100%;
-          height: 42px;
-          border: 0;
-          font-weight: 500;
-
-          &.btnFacebook {
-            background-color: #3b5998;
-
-            &:hover {
-              background-color: darken(#3b5998, 5%);
-            }
-          }
-
-          &.btnGooglePlus {
-            background-color: #dd4b39;
-            margin-top: 15px;
-
-            &:hover {
-              background-color: darken(#dd4b39, 5%);
-            }
-          }
-
-          &.btnAuthZero {
-            background-color: #e14615;
-            margin-top: 15px;
-
-            &:hover {
-              background-color: darken(#e14615, 5%);
-            }
-          }
-
-          &.btnFirebase {
-            background-color: ${palette('color', 5)};
-            margin-top: 15px;
-
-            &:hover {
-              background-color: ${palette('color', 6)};
-            }
-          }
-        }
-      }
-
+      
       .isoForgotPass {
         font-size: 12px;
         color: ${palette('text', 3)};
