@@ -20,7 +20,7 @@ class Signin extends React.Component{
         const emailId = this.emailInput.input.value;
         const password = this.passwordInput.input.value;
         login(emailId, password);
-        this.props.history.push('/app');
+       // this.props.history.push('/app');
     }
     render(){
         const from = { pathname: '/app' };
@@ -83,7 +83,7 @@ class Signin extends React.Component{
 const mapStateToProps = (state) => {
     return {
         isLoggedIn:state.Auth.idToken !==null ? true : false,
-        accessDenied:state.Auth.loginError
+        accessDenied:state.Auth.loginError? true: false
     };
 };
 

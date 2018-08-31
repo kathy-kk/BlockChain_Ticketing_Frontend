@@ -1,4 +1,4 @@
-import { LOGIN_SUCCESS, LOGOUT, LOGIN_ERROR } from './ActionTypes';
+import { LOGIN_SUCCESS, LOGOUT, LOGIN_ERROR, SIGNUP_ERROR } from './ActionTypes';
 
 const initState = { idToken: null };
 
@@ -13,8 +13,15 @@ export default function authReducer(state = initState, action) {
             ...state,
             loginError: true
         };
+    case SIGNUP_ERROR:
+        return {
+            ...state,
+            signupError: true,
+            errorHint: action.errorHint
+        };   
     case LOGOUT:
         return initState;
+
     default:
         return state;
     }
