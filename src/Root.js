@@ -7,7 +7,7 @@ import { LocaleProvider } from 'antd';
 import { ThemeProvider } from 'styled-components';
 import AppLocale from './locale/AppLocale';
 import theme from './component/styles/theme';
-import AppHolder from './screen/App/App.style';
+import AppHolder from './Root.style';
 
 const Root = ({ store, history }) => {
     const currentLocale = AppLocale.en;
@@ -18,9 +18,9 @@ const Root = ({ store, history }) => {
         >
             <ThemeProvider theme = {theme} >
                 <AppHolder>
-                <Provider store = {store}>     
-                    <PublicRouter history = {history}/>
-                </Provider>
+                    <Provider store = {store}>     
+                        <PublicRouter history = {history}/>
+                    </Provider>
                 </AppHolder>
             </ThemeProvider>
         </IntlProvider>
